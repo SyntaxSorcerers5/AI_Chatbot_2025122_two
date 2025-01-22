@@ -1,0 +1,4 @@
+You: i'm hurt my hand
+Bot: I'm sorry to hear that. Could you please give me more details? Did you cut it, burn it, or is it a bruise? How severe is the pain?
+You: burn
+Bot: If the burn is large, deep, or involves the face or joints, cover with a clean cloth and seek emergency help.

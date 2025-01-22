@@ -1,0 +1,18 @@
+You: i'm bruisee
+Bot: Apply a cold pack wrapped in a cloth to reduce swelling and pain.
+You: object enter to nose
+Bot: If an object has entered your nose, it's important to stay calm and follow these steps:
+
+1. Don't try to inhale the object by forcefully breathing in. This might push the object further up your nose.
+
+2. Try to gently blow your nose to see if the object comes out. 
+
+3. If you can see the object and it is not stuck, you may use tweezers to gently pull it out. 
+
+4. If the object is stuck, or you can't remove it easily, seek medical attention immediately. 
+
+5. Don't stick anything else up your nose to try and remove the object. This could push it further up, or potentially cause damage.
+
+In the meantime, avoid eating or drinking since it could cause choking especially if the object is small. 
+
+Remember, it's always best to get help from a medical professional in these situations. They are trained to handle this safely.

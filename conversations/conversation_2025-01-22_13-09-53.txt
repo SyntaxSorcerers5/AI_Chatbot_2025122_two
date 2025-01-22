@@ -1,0 +1,4 @@
+You: hi
+Bot: Hello! How can I assist you with first aid information today?
+You: cut
+Bot: If the cut is deep or bleeding heavily, apply pressure with a sterile cloth and seek medical attention immediately.

@@ -1,0 +1,16 @@
+You: hi
+Bot: Hello! How can I assist you today?
+You: bleeding
+Bot: I'm sorry to hear that. Here are the basic steps to manage bleeding:
+
+1. Ensure your safety first. Use gloves if available.
+
+2. Apply pressure to the wound with a clean bandage or cloth cover. Use your hand if nothing else is readily available.
+
+3. Raise the wound, if possible, above the level of the person's heart.
+
+4. If the wound is large, deep, and/or there is an object embedded, don't try to remove anything. Instead, seek immediate medical attention.
+
+5. If the bleeding doesn’t stop, keep pressure on the wound and seek immediate medical help.
+
+Remember that this advice is just a basic first aid guideline. Always call your local emergency number or visit an emergency room if you're worried.

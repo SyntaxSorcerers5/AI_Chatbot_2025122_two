@@ -1,0 +1,18 @@
+You: hi
+Bot: Hello! How can I assist you today?
+You: my back pain
+Bot: I'm sorry to hear you're experiencing back pain. Here are some general suggestions that may help:
+
+1. Rest: If the pain is severe or due to a minor injury or strain, rest can help relieve the pain. 
+
+2. Over-the-counter pain relievers: Non-prescription medications like ibuprofen or acetaminophen can help with temporary pain relief.
+
+3. Heat or Cold: Try a hot bath, a hot water bottle, or a heating pad to soothe stiff or sore muscles. Alternatively, use a cold pack for recent injuries or acute pain.
+
+4. Gentle exercise: When you're feeling up to it, gentle exercises can help, such as walking or swimming. Strengthening your core muscles can also help support your back.
+
+Remember, these are general tips and may not be suitable for everyone. If your pain is severe, persistent, or accompanied by other symptoms like fever, weight loss, or problems with bowel or bladder control, you should seek medical attention immediately.
+You: hurt
+Bot: I'm sorry to hear that you're in pain. Can you please describe your symptoms more specifically? Are you feeling pain in a specific part of your body? Is it a cut, a burn, a fall, or something else? Please provide more details so I can give the most accurate advice.
+You: cut
+Bot: If the cut is deep or bleeding heavily, apply pressure with a sterile cloth and seek medical attention immediately.

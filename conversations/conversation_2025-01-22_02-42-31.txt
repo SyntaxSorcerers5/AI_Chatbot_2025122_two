@@ -1,0 +1,12 @@
+You: hi
+Bot: Hello! How can I assist you with first aid today?
+You: my eye hurt
+Bot: I'm sorry to hear that you're experiencing eye discomfort. Here are a few first aid steps you can try:
+
+1. Rest your eyes: Close your eyes for a few minutes and see if the pain subsides.
+2. Use a cold compress: Apply a cold cloth to your eyes for 15 minutes to help reduce pain and swelling.
+3. Flush your eyes: If you feel like there's something in your eye, try flushing it out with clean water or a saline solution.
+
+However, if your eye pain is severe, or accompanied by symptoms such as loss of vision, light sensitivity, a feeling of something stuck in your eye, or redness, it's important to seek medical attention immediately. Eye injuries can be serious and should be evaluated by a healthcare professional.
+
+DISCLAIMER: This advice is intended to be general in nature, and specific causes may need different treatments. Always seek professional medical advice.

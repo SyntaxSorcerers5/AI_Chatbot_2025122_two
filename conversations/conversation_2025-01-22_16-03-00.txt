@@ -1,0 +1,4 @@
+You: hi
+Bot: Hello! How can I assist you today?
+You: cut
+Bot: Clean the wound with clean water and apply an antiseptic. Cover with a clean bandage.

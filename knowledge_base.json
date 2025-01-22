@@ -1,0 +1,42 @@
+{
+  "fainting": {
+    "minor": "If someone feels faint, have them sit or lie down and rest. Offer water and ensure they get fresh air.",
+    "serious": "If the person has fainted, check for a pulse and breathing. Call emergency services if unresponsive or if fainting occurs frequently."
+  },
+  "cut": {
+    "minor": "Clean the wound with clean water and apply an antiseptic. Cover with a clean bandage.",
+    "serious": "If the cut is deep or bleeding heavily, apply pressure with a sterile cloth and seek medical attention immediately."
+  },
+  "nosebleed": {
+    "minor": "Sit upright and lean forward slightly. Pinch the nose just above the nostrils for 10 minutes.",
+    "serious": "If bleeding doesn’t stop after 20 minutes or occurs after an injury, seek medical help immediately."
+  },
+  "burn": {
+    "minor": "Cool the burn under running water for 10 minutes. Apply a sterile non-stick dressing.",
+    "serious": "If the burn is large, deep, or involves the face or joints, cover with a clean cloth and seek emergency help."
+  },
+  "chemical burn": {
+    "minor": "Rinse the affected area with cool running water for 20 minutes. Remove contaminated clothing.",
+    "serious": "If the burn is extensive or involves the eyes, call emergency services immediately and continue rinsing."
+  },
+  "animal bite": {
+    "minor": "Wash the bite with soap and water. Apply an antiseptic and monitor for signs of infection.",
+    "serious": "If the bite is deep, bleeding heavily, or from a potentially rabid animal, seek emergency medical help immediately."
+  },
+  "broken bone": {
+    "minor": "Immobilize the area using a splint or sling. Avoid moving the injured part.",
+    "serious": "If the bone is protruding, bleeding heavily, or causing severe pain, call emergency services immediately."
+  },
+  "missing tooth": {
+    "minor": "Gently rinse the tooth and the mouth with clean water. Store the tooth in milk and visit a dentist immediately.",
+    "serious": "If there is significant bleeding or injury to the gums, apply pressure with gauze and seek urgent medical care."
+  },
+  "foreign object in nose": {
+    "minor": "Encourage the person to gently blow their nose to dislodge the object.",
+    "serious": "If the object is stuck or causing difficulty breathing, seek medical attention immediately."
+  },
+  "bruise": {
+    "minor": "Apply a cold pack wrapped in a cloth to reduce swelling and pain.",
+    "serious": "If the bruise is large, painful, or involves internal organs (after trauma), seek medical attention immediately."
+  }
+}
