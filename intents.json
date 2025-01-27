@@ -2,13 +2,63 @@
     "intents": [
         {
             "tag": "greeting",
-            "patterns": ["Hello", "Hi", "How are you?"],
-            "responses": ["Hello!", "Hi there!", "How can I help you?"]
+            "patterns": ["Hello", "Hi", "How are you?", "Good morning", "Good evening", "Hey there", "What's up?"],
+            "responses": ["Hello!", "Hi there!", "How can I help you?", "Good to see you!", "How's it going?"]
         },
         {
             "tag": "goodbye",
-            "patterns": ["Bye", "Goodbye", "See you later"],
-            "responses": ["Goodbye!", "See you later!", "Take care!"]
+            "patterns": ["Bye", "Goodbye", "See you later", "Take care", "Catch you later", "I’m leaving", "Farewell"],
+            "responses": ["Goodbye!", "See you later!", "Take care!", "Have a great day!", "Stay safe!"]
+        },
+        {
+            "tag": "fainting",
+            "patterns": ["What to do if someone faints?", "Help with fainting", "How to treat fainting?", "Someone just fainted", "Dealing with fainting"],
+            "responses": ["If someone feels faint, have them sit or lie down and rest. Offer water and ensure they get fresh air.", "If the person has fainted, check for a pulse and breathing. Call emergency services if unresponsive or if fainting occurs frequently."]
+        },
+        {
+            "tag": "cut",
+            "patterns": ["How to treat a cut?", "Help with a deep cut", "First aid for bleeding", "What to do for a small cut?"],
+            "responses": ["Clean the wound with clean water and apply an antiseptic. Cover with a clean bandage.", "If the cut is deep or bleeding heavily, apply pressure with a sterile cloth and seek medical attention immediately."]
+        },
+        {
+            "tag": "nosebleed",
+            "patterns": ["What to do for a nosebleed?", "How to stop a nosebleed?", "Help with bleeding nose", "Nose is bleeding, what now?"],
+            "responses": ["Sit upright and lean forward slightly. Pinch the nose just above the nostrils for 10 minutes.", "If bleeding doesn’t stop after 20 minutes or occurs after an injury, seek medical help immediately."]
+        },
+        {
+            "tag": "burn",
+            "patterns": ["What to do for a burn?", "Help with burn injury", "First aid for burns", "How to treat a burn?"],
+            "responses": ["Cool the burn under running water for 10 minutes. Apply a sterile non-stick dressing.", "If the burn is large, deep, or involves the face or joints, cover with a clean cloth and seek emergency help."]
+        },
+        {
+            "tag": "chemical burn",
+            "patterns": ["How to treat a chemical burn?", "What to do for chemical burns?", "Help with chemical exposure", "Chemical injury treatment"],
+            "responses": ["Rinse the affected area with cool running water for 20 minutes. Remove contaminated clothing.", "If the burn is extensive or involves the eyes, call emergency services immediately and continue rinsing."]
+        },
+        {
+            "tag": "animal bite",
+            "patterns": ["What to do for an animal bite?", "First aid for animal bite", "Help with dog bite", "How to treat a bite wound?"],
+            "responses": ["Wash the bite with soap and water. Apply an antiseptic and monitor for signs of infection.", "If the bite is deep, bleeding heavily, or from a potentially rabid animal, seek emergency medical help immediately."]
+        },
+        {
+            "tag": "broken bone",
+            "patterns": ["How to treat a broken bone?", "First aid for fracture", "Help with broken arm", "What to do for bone injury?"],
+            "responses": ["Immobilize the area using a splint or sling. Avoid moving the injured part.", "If the bone is protruding, bleeding heavily, or causing severe pain, call emergency services immediately."]
+        },
+        {
+            "tag": "missing tooth",
+            "patterns": ["What to do for a missing tooth?", "Help with tooth injury", "First aid for knocked-out tooth", "How to handle tooth loss?"],
+            "responses": ["Gently rinse the tooth and the mouth with clean water. Store the tooth in milk and visit a dentist immediately.", "If there is significant bleeding or injury to the gums, apply pressure with gauze and seek urgent medical care."]
+        },
+        {
+            "tag": "foreign object in nose",
+            "patterns": ["Help with object in nose", "What to do for object stuck in nose?", "How to remove nose obstruction?"],
+            "responses": ["Encourage the person to gently blow their nose to dislodge the object.", "If the object is stuck or causing difficulty breathing, seek medical attention immediately."]
+        },
+        {
+            "tag": "bruise",
+            "patterns": ["What to do for a bruise?", "Help with swelling and pain", "First aid for bruises", "How to reduce a bruise?"],
+            "responses": ["Apply a cold pack wrapped in a cloth to reduce swelling and pain.", "If the bruise is large, painful, or involves internal organs (after trauma), seek medical attention immediately."]
         }
     ]
 }

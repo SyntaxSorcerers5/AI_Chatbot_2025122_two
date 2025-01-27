@@ -1,0 +1,5 @@
+conversation_logs/
+conversations/
+venv/
+__pycache__/
+chatbot_report*

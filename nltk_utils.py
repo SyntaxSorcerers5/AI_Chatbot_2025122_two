@@ -3,9 +3,31 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from rapidfuzz import fuzz, process
 from textblob import TextBlob
+from nltk.stem.porter import PorterStemmer
 
 # Initialize lemmatizer
 lemmatizer = WordNetLemmatizer()
+
+stemmer = PorterStemmer()
+
+def stem(word):
+    """Stem a word to its root form."""
+    return stemmer.stem(word.lower())
+
+def tokenize(sentence):
+    """Split a sentence into an array of words."""
+    return sentence.split()
+
+def bag_of_words(tokenized_sentence, all_words):
+    """Convert a sentence into a bag-of-words representation."""
+    tokenized_sentence = [stem(w) for w in tokenized_sentence]
+    import numpy as np
+    bag = np.zeros(len(all_words), dtype=np.float32)
+    for idx, w in enumerate(all_words):
+        if w in tokenized_sentence:
+            bag[idx] = 1.0
+    return bag
+
 
 # Download required NLTK data
 nltk.download('punkt')

@@ -1,22 +1,22 @@
 {
   "fainting": {
-    "minor": "If someone feels faint, have them sit or lie down and rest. Offer water and ensure they get fresh air.",
-    "serious": "If the person has fainted, check for a pulse and breathing. Call emergency services if unresponsive or if fainting occurs frequently."
+    "minor": "If someone feels faint or dizzy, have them sit or lie down immediately.\nElevate their legs slightly if possible.\nOffer them cool water to sip slowly.\nEnsure they get fresh air.\nMonitor their condition and stay with them until they feel better.",
+    "serious": "Check for responsiveness (shout and gently shake).\nCheck for breathing (look, listen, feel).\nCheck for a pulse (at the neck or wrist).\nIf no breathing or pulse, begin CPR immediately.\nCall emergency services immediately.\nContinue CPR until medical help arrives.\nIf fainting occurs frequently or is accompanied by other symptoms (chest pain, difficulty breathing), seek immediate medical attention."
   },
   "cut": {
-    "minor": "Clean the wound with clean water and apply an antiseptic. Cover with a clean bandage.",
-    "serious": "If the cut is deep or bleeding heavily, apply pressure with a sterile cloth and seek medical attention immediately."
+    "minor": "Stop the bleeding by applying gentle pressure with a clean cloth.\nWash the wound thoroughly with clean water and mild soap.\nApply an antibiotic ointment to prevent infection.\nCover with a clean bandage.\nChange the bandage daily or as needed.",
+    "serious": "If the cut is deep, bleeding heavily, or shows signs of severe infection (redness, swelling, pus), seek immediate medical attention.\nIf the cut is on the face or near a joint, seek medical advice for proper closure."
   },
   "nosebleed": {
-    "minor": "Sit upright and lean forward slightly. Pinch the nose just above the nostrils for 10 minutes.",
-    "serious": "If bleeding doesn’t stop after 20 minutes or occurs after an injury, seek medical help immediately."
+    "minor": "Have the person sit upright and lean slightly forward to prevent blood from going down the throat.\nPinch the soft part of the nose just below the bony bridge for 10-15 minutes.\nApply an ice pack to the bridge of the nose.\nIf bleeding continues, repeat pinching.",
+    "serious": "If the nosebleed lasts longer than 20 minutes, is severe, or occurs after a head injury, seek immediate medical attention."
   },
   "burn": {
-    "minor": "Cool the burn under running water for 10 minutes. Apply a sterile non-stick dressing.",
-    "serious": "If the burn is large, deep, or involves the face or joints, cover with a clean cloth and seek emergency help."
+    "minor": "Cool the burn immediately with cool running water for 15-20 minutes.\nDo NOT use ice or ice water.\nGently pat the burn dry with a clean cloth.\nApply a loose, sterile, non-stick bandage.\nDo NOT apply butter, ointment, or cream to the burn.",
+    "serious": "If the burn is large, deep, or involves the face, hands, feet, genitals, or joints, seek immediate medical attention.\nIf the burn is caused by chemicals, remove contaminated clothing and continue rinsing with cool water for at least 20 minutes.\nIf the burn is an electrical burn, do NOT touch the victim until the power source is turned off."
   },
   "chemical burn": {
-    "minor": "Rinse the affected area with cool running water for 20 minutes. Remove contaminated clothing.",
+    "minor": "Immediately flush the affected area with cool running water for at least 20 minutes.\nRemove any contaminated clothing.\nApply a cool compress to the burn.",
     "serious": "If the burn is extensive or involves the eyes, call emergency services immediately and continue rinsing."
   },
   "animal bite": {

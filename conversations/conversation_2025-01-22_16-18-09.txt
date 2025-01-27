@@ -1,4 +1,0 @@
-You: hi
-Bot: Hello! How can I assist you today?
-You: burn
-Bot: Cool the burn under running water for 10 minutes. Apply a sterile non-stick dressing.

@@ -1,4 +1,0 @@
-You: cut
-Bot: If the cut is deep or bleeding heavily, apply pressure with a sterile cloth and seek medical attention immediately.
-You: uit
-Bot: I'm sorry, but I didn't understand your message. Can you provide more details or rephrase your question? I'm here to help with first-aid information and guidance.

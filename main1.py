@@ -9,6 +9,10 @@ from nltk_utils import tokenize
 from model import NeuralNet
 import torch
 from nltk_utils import preprocess_input, fuzzy_match_with_synonyms
+from fpdf import FPDF
+from datetime import datetime
+import torch
+import torch.nn as nn
 
 # OpenAI GPT-4 API Configuration
 openai_api_key = "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"
@@ -107,6 +111,9 @@ def get_response(msg):
         elif matched_key == 'foreign object in nose':
             severity_input = input("Is the object small or large? (Small/Large): ").strip().lower()
             severity = 'serious' if severity_input == 'large' else 'minor'
+        elif matched_key == 'bruise':
+            severity_input = input("Is it a large bruise that covers a significant area of the body or a small bruise? (Small/Large): ").strip().lower()
+            severity = 'serious' if severity_input == 'large' else 'minor'
 
         # Retrieve and return the appropriate first aid details
         return get_first_aid_details(matched_key, severity)
@@ -124,7 +131,36 @@ def get_response(msg):
 
     return ai_response.content
 
-def generate_pdf_report(conversation, first_aid_info):
+def collect_feedback():
+    """Enhanced feedback collection from the user."""
+    print("Please provide feedback for this session.")
+    rating = input("Rate your experience from 1 to 5 (1 = Poor, 5 = Excellent): ").strip()
+    suggestions = input("Do you have any suggestions for improving the chatbot? (Optional): ").strip()
+
+    feedback = {
+        "rating": rating,
+        "suggestions": suggestions
+    }
+
+    # Save feedback to a feedback file
+    feedback_file = os.path.join(conversation_dir, 'feedback.json')
+    feedback_data = []
+
+    if os.path.exists(feedback_file):
+        try:
+            with open(feedback_file, 'r') as f:
+                feedback_data = json.load(f)
+        except json.JSONDecodeError:
+            print("Error reading feedback file. Initializing a new one.")
+
+    feedback_data.append(feedback)
+
+    with open(feedback_file, 'w') as f:
+        json.dump(feedback_data, f, indent=4)
+
+    print("Thank you for your feedback!")
+
+def conversation_pdf(conversation, first_aid_info):
     """Generate a PDF report of the conversation and first aid details."""
     pdf = FPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
@@ -147,11 +183,129 @@ def generate_pdf_report(conversation, first_aid_info):
 
     return pdf_output_path
 
+def summarize_conversation(conversation):
+    """Generate a summary of the conversation using OpenAI GPT-4."""
+    system_message = SystemMessage(
+        content="You are a helpful assistant. Summarize the following conversation in a few sentences, highlighting the main points.")
+    user_message = HumanMessage(content=conversation)
+
+    # Get the summary from GPT-4
+    ai_response = chat_model.invoke([system_message, user_message])
+    return ai_response.content
+
+class PDF(FPDF):
+    def header(self):
+        # You can add custom headers here if needed
+        pass
+
+    def footer(self):
+        # Add footer on each page
+        self.set_y(-15)
+        self.set_font("DejaVu", size=8)
+        self.cell(0, 10, f"Page {self.page_no()}", 0, 0, 'C')
+
+    def add_frame(self):
+        # Add a frame (rectangle) to every page
+        self.set_line_width(0.5)
+        self.rect(10, 10, 190, 277)  # Adjust the coordinates as needed
+
+def generate_pdf_report(conversation, first_aid_info, user_details=None, location=None, emergency_contact=None,
+                        firstaid_provided=False, pdf_output_path="report.pdf"):
+    """
+    Generate a PDF report from the chatbot conversation, first aid information, and other details.
+
+    Parameters:
+        conversation (str): Full conversation text.
+        first_aid_info (dict): First aid information provided.
+        user_details (dict): Dictionary with user details (name, age, gender).
+        location (str): User's location.
+        emergency_contact (str): Emergency contact details.
+        firstaid_provided (bool): Whether first aid was provided.
+        pdf_output_path (str): File path for saving the PDF report.
+    """
+    pdf = PDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.add_page()
+
+    # Load fonts (DejaVu fonts need to be added to the directory if not already)
+    font_dir = r"C:\Users\Kasthuri\PycharmProjects\CHATBOT01"  # Adjust this path if needed
+
+    # Add the fonts
+    pdf.add_font("DejaVu", "", f"{font_dir}/DejaVuSans.ttf", uni=True)  # Regular font
+    pdf.add_font("DejaVu", "B", f"{font_dir}/DejaVuSans-Bold.ttf", uni=True)  # Bold font
+
+    # Add the frame to the first page and subsequent pages
+    pdf.add_frame()
+
+    # Add the header
+    pdf.set_font("DejaVu", style="B", size=14)
+    pdf.cell(200, 10, txt="Chatbot Interaction Report", ln=True, align="C")
+    pdf.ln(10)
+
+    # Add the Date and Time
+    current_time = datetime.now()
+    pdf.set_font("DejaVu", size=12)
+    pdf.cell(200, 10, txt=f"Date: {current_time.strftime('%Y-%m-%d')}", ln=True)
+    pdf.cell(200, 10, txt=f"Time: {current_time.strftime('%H:%M:%S')}", ln=True)
+    pdf.ln(10)
+
+    # Add User Details (if available)
+    if user_details:
+        pdf.cell(200, 10, txt="User Details:", ln=True)
+        pdf.cell(200, 10, txt=f"    User Name: {user_details.get('name', 'N/A')}", ln=True)
+        pdf.cell(200, 10, txt=f"    User Age: {user_details.get('age', 'N/A')}", ln=True)
+        pdf.cell(200, 10, txt=f"    User Gender: {user_details.get('gender', 'N/A')}", ln=True)
+        pdf.ln(10)
+
+    # Add the Summary of First Aid
+    summary = summarize_conversation(conversation)  # Summarize the conversation
+    pdf.cell(200, 10, txt="Summary of First Aid Provided:", ln=True)
+    pdf.multi_cell(0, 10, txt=summary)
+    pdf.ln(10)
+
+    # Add the Full Conversation
+    pdf.cell(200, 10, txt="Conversation:", ln=True)
+    pdf.ln(5)
+    for message in conversation.split("\n"):
+        pdf.multi_cell(0, 10, txt=message)
+        pdf.ln(2)
+
+    # Add Location (if available)
+    if location:
+        pdf.ln(5)
+        pdf.cell(200, 10, txt=f"Location: {location}", ln=True)
+
+    # Add Emergency Contact (if available)
+    if emergency_contact:
+        pdf.ln(5)
+        pdf.cell(200, 10, txt=f"Emergency Contact: {emergency_contact}", ln=True)
+
+    # Add First Aid Provided Status
+    pdf.ln(10)
+    pdf.cell(200, 10, txt=f"First Aid Provided: {'Yes' if firstaid_provided else 'No'}", ln=True)
+
+    # Add the frame to the next page if needed
+    pdf.add_page()
+    pdf.add_frame()
+
+    # Create a unique file name using timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    pdf_output_path = f"chatbot_report_{timestamp}.pdf"
+
+    # Output the PDF
+    pdf.output(pdf_output_path)
+    print(f"PDF report generated at: {pdf_output_path}")
+    return pdf_output_path
 
 def chatbot():
     """Main chatbot loop."""
     conversation = ""
     first_aid_data = {}
+    user_details = {}  # Optional: Populate with user-specific information if needed
+    location = None
+    emergency_contact = None
+    firstaid_provided = False  # This can be updated based on your bot's logic
+
     print("Chatbot is running! Type 'quit' to exit.")
 
     while True:
@@ -160,19 +314,15 @@ def chatbot():
             print("Goodbye! Saving your conversation...")
 
             # Collect feedback before quitting
-            feedback = input("Was this session helpful? (Yes/No): ").strip().lower()
-            if feedback == "yes":
-                # Save feedback-related details
-                for question, answer in first_aid_data.items():
-                    save_new_solution_to_file(question, answer)
+            collect_feedback()
 
             # Save the conversation log
             timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-            with open(os.path.join(conversation_dir, f"conversation_{timestamp}.txt"), 'w') as file:
+            conversation_file_path = os.path.join(conversation_dir, f"conversation_{timestamp}.txt")
+            with open(conversation_file_path, 'w') as file:
                 file.write(conversation)
 
-            # Generate PDF report
-            generate_pdf_report(conversation, first_aid_data)
+            print(f"Conversation log saved to {conversation_file_path}.")
 
             print("Session ended. Thank you for your feedback!")
             break
@@ -182,9 +332,14 @@ def chatbot():
 
         conversation += f"You: {msg}\nBot: {response}\n"
 
+        # Capture first aid responses
         if "serious" in response or "emergency" in response:
             first_aid_data[msg] = response
 
+    first_aid_info = first_aid_data  # Pass the actual dictionary
+
+    report_path = generate_pdf_report(conversation, first_aid_info)
+    print(f"Conversation saved: {report_path}")
 
 # Run the chatbot
 if __name__ == "__main__":
